@@ -19,12 +19,13 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from django.urls import path, include
 from rest_framework import routers, serializers, viewsets
+from polls.models import Question
 
 # Serializers define the API representation.
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'is_staff']
+        model = Question
+        fields = ['question_text', 'pub_date']
 
 # ViewSets define the view behavior.
 class UserViewSet(viewsets.ModelViewSet):
