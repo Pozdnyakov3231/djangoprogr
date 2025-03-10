@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from django.utils import timezone
 
@@ -19,3 +20,19 @@ class Choice(models.Model):
         return self.choice_text
 
 # Create your models here.
+
+class Scooter(models.Model):
+    STATUS_CHOICES = [
+        ('available', 'Доступен'),
+        ('rented', 'Арендован'),
+        ('maintenance', 'На обслуживании'),
+    ]
+
+    model = models.CharField(max_length=100)
+    battery_capacity = models.IntegerField(default=100)  # Новое поле: емкость аккумулятора (в %)
+    battery_level = models.IntegerField(default=100)  # Текущий заряд
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='available')
+    last_maintenance_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"{self.model} - {self.battery_level}% / {self.battery_capacity}%"
