@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-f=wdoc^6lbvsi&d#diucb7)up5sflsc0@2#ng!4c9xpz4)7-vs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*.app.github.dev', 'backend']
 
 
 # Application definition
@@ -125,12 +125,3 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 NOCODB_API_KEY = "cGSsoCz17BnS9HI_oiwakjqaEg8m0Im7PycpEdsm"
 NOCODB_BASE_URL = 'https://app.nocodb.com/api/v2/'
-CSRF_TRUSTED_ORIGINS = [
-    "https://localhost:8000",
-]
-
-CORS_ALLOWED_ORIGINS = [
-    "https://localhost:8000",
-]
-
-CORS_ALLOW_ALL_ORIGINS = True
